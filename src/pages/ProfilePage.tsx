@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { CalendarDays, MapPin, Settings, Users } from 'lucide-react'
 import { api, ApiError } from '../api/client'
 import { Avatar } from '../components/Avatar'
+import { Flag } from '../components/Flag'
 import { FollowButton } from '../components/FollowButton'
 import { ReviewCard } from '../components/ReviewCard'
 import { EmptyState, ErrorState, LoadingState } from '../components/States'
@@ -207,7 +208,9 @@ export function ProfilePage() {
         <Avatar username={profile.username} src={profile.profilePictureURL} size="xl" />
         <div className="profile-hero__identity">
           <p className="profile-hero__kicker">{isSelf ? 'Your journal' : 'Member journal'}</p>
-          <h1>{profile.username}</h1>
+          <h1>
+            {profile.username} <Flag country={profile.country} />
+          </h1>
           <div className="profile-hero__meta">
             {profile.country ? (
               <span>
@@ -317,7 +320,9 @@ export function ProfilePage() {
                   <Link to={`/u/${person.username}`} className="people-row__identity">
                     <Avatar username={person.username} src={person.profilePictureURL} />
                     <span>
-                      <strong>{person.username}</strong>
+                      <strong>
+                        {person.username} <Flag country={person.country} />
+                      </strong>
                       <small>{person.country ? countryName(person.country) : 'Letterbox member'}</small>
                     </span>
                   </Link>

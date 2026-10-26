@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Film, Star, Users } from 'lucide-react'
 import { api, posterURL } from '../api/client'
 import { Avatar } from '../components/Avatar'
+import { Flag } from '../components/Flag'
 import { MovieGrid } from '../components/MovieGrid'
 import { ReviewCard } from '../components/ReviewCard'
 import { Stars } from '../components/Stars'
@@ -193,7 +194,9 @@ function FeaturedReview({
           <Avatar username={author?.username ?? 'Member'} src={author?.profilePictureURL} size="sm" />
           <span>
             {author ? (
-              <Link to={`/u/${author.username}`}>{author.username}</Link>
+              <Link to={`/u/${author.username}`}>
+                {author.username} <Flag country={author.country} />
+              </Link>
             ) : (
               <span>{`Member #${review.user_id}`}</span>
             )}

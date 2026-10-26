@@ -362,6 +362,20 @@ img {
   border-color: var(--amber);
 }
 
+.flag {
+  display: inline-block;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: -0.08em;
+}
+
+.profile-hero h1 .flag {
+  font-size: 0.38em;
+  vertical-align: 0.28em;
+}
+
 .button {
   display: inline-flex;
   align-items: center;

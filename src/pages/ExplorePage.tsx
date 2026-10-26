@@ -3,6 +3,7 @@ import { ArrowUpRight, Search, X } from 'lucide-react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { api } from '../api/client'
 import { Avatar } from '../components/Avatar'
+import { Flag } from '../components/Flag'
 import { MovieGrid } from '../components/MovieGrid'
 import { EmptyState, ErrorState, LoadingState } from '../components/States'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
@@ -262,7 +263,9 @@ function UserResults({ query }: { query: string }) {
                 <Link to={`/u/${person.username}`} className="people-row__identity">
                   <Avatar username={person.username} src={person.profilePictureURL} />
                   <span>
-                    <strong>{person.username}</strong>
+                    <strong>
+                      {person.username} <Flag country={person.country} />
+                    </strong>
                     <small>{person.country ? countryName(person.country) : 'Letterbox member'}</small>
                   </span>
                 </Link>

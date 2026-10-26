@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext'
 import { cx, fullDate, relativeTime } from '../lib/format'
 import type { Movie, PublicUser, Review } from '../types'
 import { Avatar } from './Avatar'
+import { Flag } from './Flag'
 import { Stars } from './Stars'
 
 interface ReviewCardProps {
@@ -39,6 +40,7 @@ export function ReviewCard({
 
   const isOwn = user?.id === review.user_id
   const displayName = author?.username ?? (isOwn ? user?.username : `Member #${review.user_id}`) ?? `Member #${review.user_id}`
+  const authorCountry = author?.country ?? (isOwn ? user?.country : '')
   const authorTarget = author ? `/u/${author.username}` : isOwn && user ? `/u/${user.username}` : undefined
   const edited = new Date(review.updated_at).getTime() - new Date(review.created_at).getTime() > 60_000
 
@@ -92,10 +94,12 @@ export function ReviewCard({
             <div>
               {authorTarget ? (
                 <Link to={authorTarget} className="review-card__name">
-                  {displayName}
+                  {displayName} <Flag country={authorCountry} />
                 </Link>
               ) : (
-                <span className="review-card__name">{displayName}</span>
+                <span className="review-card__name">
+                  {displayName} <Flag country={authorCountry} />
+                </span>
               )}
               <p className="review-card__meta">
                 rated <strong>{review.score}</strong> out of 10

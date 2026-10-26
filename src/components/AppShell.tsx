@@ -4,6 +4,7 @@ import { Compass, Home, LogIn, LogOut, UserRound } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { cx } from '../lib/format'
 import { Avatar } from './Avatar'
+import { Flag } from './Flag'
 import { Logo } from './Logo'
 
 export function AppShell() {
@@ -59,7 +60,9 @@ export function AppShell() {
               <Link to="/profile" className="rail__identity">
                 <Avatar username={user.username} src={user.profilePictureURL} size="sm" />
                 <span>
-                  <strong>{user.username}</strong>
+                  <strong>
+                    {user.username} <Flag country={user.country} />
+                  </strong>
                   <small>{loading ? 'Syncing' : 'Signed in'}</small>
                 </span>
               </Link>
