@@ -9,7 +9,7 @@ A vibe-coded, cinema-journal frontend for **Letterbox**, a social movie-rating p
 ## What it does
 
 - **Home** — reviews from the people you follow, with a lead review and a chronological feed.
-- **Explore** — search the TMDB catalogue and browse ranked daily trending films.
+- **Explore** — search the TMDB catalogue and Letterbox members by username, with separate films and members sections, and browse ranked daily trending films.
 - **Film pages** — average score, rating count, sortable reviews, spoiler hiding, recommendations, and a 10-star IMDb-style rating flow.
 - **Reviews** — create, edit, and delete your own review; like or dislike other reviews.
 - **Profiles** — reviews, followers, and following for any member.

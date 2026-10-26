@@ -104,6 +104,10 @@ export const api = {
     return request('/users/me', { method: 'DELETE' })
   },
 
+  searchUsers(search: string, limit = 20, offset = 0): Promise<PublicUser[]> {
+    return request(`/users/search${query({ search, limit, offset })}`)
+  },
+
   getUser(username: string): Promise<PublicUser> {
     return request(userPath(username))
   },
